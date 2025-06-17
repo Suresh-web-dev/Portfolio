@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'about.css' %}">
+</head>
+<body>
+    <header>
+        <div class="head">
+            <h1>Portfolio..</h1>
+        </div>
+
+        <div class="navi">
+            <ul id="navigation">
+                <li><a href="/home/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/projects/">Projects</a></li>
+                <li><a href="/skills/">Skills</a></li>
+                <li><a href="/education/">Education</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+            <div class="menu" id="menu_icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="main">
+        <div class="image">
+            <img src="{% static 'green man.jpg' %}" alt="green man">
+        </div>
+
+        <div class="content">
+            <h1>About Me</h1>
+            <h2>Full Stack Developer!</h2>
+            <p>Hi! I'm <span>Suresh</span>, a passionate Python & Django web developer. I build fast, secure, and scalable websites using Python, Django, MySQL, HTML, CSS, and JavaScript.</p>
+            <p>I completed my web development course at IPCS Global Institution and created several mini projects. I enjoy learning new technologies and continuously improving my coding skills.</p>
+            <p>Currently, I’m looking for a full-time role as a junior web developer.</p>
+        </div>
+    </div>
+
+
+
+    <script>
+
+
+        $(document).ready(function(){
+            $("#menu_icon").click(function(){
+                $("#navigation").toggle();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'Contact.css' %}">
+</head>
+<body>
+    <header>
+        <div class="head">
+            <h1>Portfolio..</h1>
+        </div>
+
+        <div class="navi">
+            <ul id="navigation">
+                <li><a href="/home/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/projects/">Projects</a></li>
+                <li><a href="/skills/">Skills</a></li>
+                <li><a href="/education/">Education</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+            <div class="menu" id="menu_icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="main_form">
+        <div class="form">
+            <h1><span>Contact</span> Me</h1>
+            <form action="/contact/" method="POST" onsubmit="return validateform()">
+                {% csrf_token %}
+                <div class="input">
+                    <input type="text" placeholder="Name" name="name" id="name">
+                    <input type="email" placeholder="Email" name="email" id="email">
+                </div>
+                <textarea name="message" placeholder="Your Message" id="message"></textarea>
+                <input type="submit" class="button"> 
+
+                <div class="icons">
+                    <a href="https://github.com/Suresh-web-dev"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/suresh05/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://wa.me/917339245270"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    <a href="mailto:dssuresh68@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+     <script>
+        $(document).ready(function(){
+            $("#menu_icon").click(function(){
+                $("#navigation").toggle();
+            });
+        });
+
+        function validateform(){
+
+            namefield = document.getElementById("name")
+            emailfield = document.getElementById("email")
+            messagefield = document.getElementById("message")
+
+            name = namefield.value.trim();
+            email = emailfield.value.trim();
+            message = messagefield.value.trim();
+
+            namefield.style.outline = "none"
+            emailfield.style.outline = "none"
+            messagefield.style.outline = "none"
+
+            valid = true
+
+            if(name === "" || /\d/.test(name)){
+                namefield.style.outline = "2px solid red"
+                valid = false
+            }
+
+            if(email === "" || !email.includes("@") || !email.includes(".")){
+                emailfield.style.outline = "2px solid red"
+                valid = false
+            }
+
+            if(message === ""){
+                messagefield.style.outline = "2px solid red"
+                valid = false
+            }
+
+
+            if(valid){
+                alert("Form Submitted Successfully")
+                return true
+            }
+            else{
+                return false
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

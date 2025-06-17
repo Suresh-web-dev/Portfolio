@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'skills.css' %}">
+</head>
+<body>
+
+        <header>
+        <div class="head">
+            <h1>Portfolio..</h1>
+        </div>
+
+        <div class="navi">
+            <ul id="navigation">
+                <li><a href="/home/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/projects/">Projects</a></li>
+                <li><a href="/skills/">Skills</a></li>
+                <li><a href="/education/">Education</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+            <div class="menu" id="menu_icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="skills">
+        <h1>My <span>Skills</span></h1>
+        <div class="skill-container">
+            <div class="skill">
+                <h3>Python</h3>
+                <h4 class="sk1" style="position: relative; left: 870px;">80%</h4>
+                <div class="bar">
+                    <div class="fill" style="width: 80%;"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <h3>Django</h3>
+                <h4 class="sk2" style="position: relative; left: 830px;">75%</h4>
+                <div class="bar">
+                    <div class="fill" style="width: 75%;"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <h3>MySQL</h3>
+                <h4 class="sk3" style="position: relative; left: 790px;">70%</h4>
+                <div class="bar">
+                    <div class="fill" style="width: 70%;"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <h3>HTML</h3>
+                <h4 class="sk4" style="position: relative; left: 910px;">85%</h4>
+                <div class="bar">
+                    <div class="fill" style="width: 85%;"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <h3>CSS</h3>
+                <h4 class="sk5" style="position: relative; left: 790px;">70%</h4>
+                <div class="bar">
+                    <div class="fill" style="width: 70%;"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <h3>JavaScript</h3>
+                <h4 class="sk6" style="position: relative; left: 750px;">60%</h4>
+                <div class="bar">
+                    <div class="fill" style="width: 60%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+
+    <script>
+        $(document).ready(function(){
+            $("#menu_icon").click(function(){
+                $("#navigation").toggle();
+            });
+        });
+    </script>
+</body>
+</html>

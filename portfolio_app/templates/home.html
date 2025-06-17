@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'Home.css' %}">
+</head>
+<body>
+    <header>
+        <div class="head">
+            <h1>Portfolio..</h1>
+        </div>
+
+        <div class="navi">
+            <ul id="navigation">
+                <li><a href="/home/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/projects/">Projects</a></li>
+                <li><a href="/skills/">Skills</a></li>
+                <li><a href="/education/">Education</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+            <div class="menu" id="menu_icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="main">
+        <h1 class="m_roll">Full Stack Developer</h1>
+        <div class="content">
+            <h2 class="hello">Hello, it's Me</h2>
+            <h1 class="name">SURESH</h1>
+            <h2 class="role">And I'm a <span>Full Stack Developer</span></h2>
+            <p class="about">And eager to apply my knowledge and skills in a dynamic and growth oriented environment seeking a challenging role to kickstart my career.</p>
+            <div class="resume_buttons">
+                <a href="{% static 'resume/Resume .pdf' %}" target="_blank"><button>View Resume</button></a>
+                <a href="{% static 'resume/Resume .pdf' %}" download><button>Download Resume</button></a>
+            </div>
+            <div class="icons">
+                <a href="https://github.com/Suresh-web-dev"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/suresh05/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://wa.me/917339245270"><i class="fa-brands fa-square-whatsapp"></i></a>
+                <a href="mailto:dssuresh68@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <div class="image">
+            <img src="{% static 'green man.jpg' %}" alt="green man">
+        </div>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function(){
+            $("#menu_icon").click(function(){
+                $("#navigation").toggle();
+            });
+        });
+    </script>
+</body>
+</html>
