@@ -7,7 +7,7 @@
     <title>Portfolio</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static 'Projects.css'%}">
+    <link rel="stylesheet" href="{% static 'Projects_page.css'%}">
 </head>
 <body>
 
@@ -16,8 +16,8 @@
             <h1>Portfolio..</h1>
         </div>
 
-        <div class="navi">
-            <ul id="navigation">
+        <div class="big_nav">
+            <ul>
                 <li><a href="/home/">Home</a></li>
                 <li><a href="/about/">About</a></li>
                 <li><a href="/projects/">Projects</a></li>
@@ -25,14 +25,30 @@
                 <li><a href="/education/">Education</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
-            <div class="menu" id="menu_icon">
-                <i class="fa-solid fa-bars"></i>
+        </div>
+        
+
+        <i class="fa-solid fa-bars" id="menu_icon"></i>
+
+        <div class="navi">
+            <div class="navigation" id="navigation">
+                <h1>Portfolio..</h1>
+                <i class="fa-solid fa-xmark" id="cancel_icon"></i>
+                <ul>
+                    <a href="/home/"><li>Home</li></a>
+                    <a href="/about/"><li>About</li></a>
+                    <a href="/projects/"><li>Projects</li></a>
+                    <a href="/skills/"><li>Skills</li></a>
+                    <a href="/education/"><li>Education</li></a>
+                    <a href="/contact/"><li>Contact</li></a>
+                </ul>
             </div>
         </div>
     </header>
     
 
     <!-- Project Section -->
+
 <section id="projects" class="project-section">
     <div class="container">
         <h2>My <span>Projects</span></h2>
@@ -43,7 +59,6 @@
                 <img src="{{ project.image.url }}" alt="{{ project.title }}">
                 {% endif %}
                 <h1>{{ project.title }}</h1>
-                <p id="description">{{ project.description }}</p>
                 <div class="links">
                     {% if project.github_link %}
                     <a href="{{ project.github_link }}" target="_blank"><button>View Code</button></a>
@@ -54,7 +69,7 @@
                 </div>
             </div>
             {% empty %}
-            <p id="no">No projects added yet.</p>
+            <p id="empty">No projects added yet.</p>
             {% endfor %}
         </div>
     </div>
@@ -62,11 +77,18 @@
 
 
     <script>
-        $(document).ready(function(){
-            $("#menu_icon").click(function(){
-                $("#navigation").toggle();
-            });
-        });
+        menu_icon = document.getElementById("menu_icon")
+        cancel_icon = document.getElementById("cancel_icon")
+        navigation = document.getElementById("navigation")
+
+        
+        menu_icon.addEventListener("click",function(){
+            navigation.classList.add("active")
+        })
+
+        cancel_icon.addEventListener("click",function(){
+            navigation.classList.remove("active")
+        })
     </script>
 
 </body>

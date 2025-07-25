@@ -7,17 +7,17 @@
     <title>Portfolio</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static 'Education.css' %}">
+    <link rel="stylesheet" href="{% static 'Education_page.css' %}">
 </head>
 <body>
 
-        <header>
+    <header>
         <div class="head">
             <h1>Portfolio..</h1>
         </div>
 
-        <div class="navi">
-            <ul id="navigation">
+        <div class="big_nav">
+            <ul>
                 <li><a href="/home/">Home</a></li>
                 <li><a href="/about/">About</a></li>
                 <li><a href="/projects/">Projects</a></li>
@@ -25,8 +25,23 @@
                 <li><a href="/education/">Education</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
-            <div class="menu" id="menu_icon">
-                <i class="fa-solid fa-bars"></i>
+        </div>
+        
+
+        <i class="fa-solid fa-bars" id="menu_icon"></i>
+
+        <div class="navi">
+            <div class="navigation" id="navigation">
+                <h1>Portfolio..</h1>
+                <i class="fa-solid fa-xmark" id="cancel_icon"></i>
+                <ul>
+                    <a href="/home/"><li>Home</li></a>
+                    <a href="/about/"><li>About</li></a>
+                    <a href="/projects/"><li>Projects</li></a>
+                    <a href="/skills/"><li>Skills</li></a>
+                    <a href="/education/"><li>Education</li></a>
+                    <a href="/contact/"><li>Contact</li></a>
+                </ul>
             </div>
         </div>
     </header>
@@ -51,9 +66,9 @@
             </div>
 
             <div class="line">
-                <div class="dot1"></div><div class="year1">2019-2021</div>
-                <div class="dot2"></div><div class="year2">2021-2024</div>
-                <div class="dot3"></div><div class="year3">2024-2025</div>
+                <div class="dot1"><div class="year1">2019-2021</div></div>
+                <div class="dot2"><div class="year2">2021-2024</div></div>
+                <div class="dot3"><div class="year3">2024-2025</div></div>
             </div>
         </div>
     </div>
@@ -61,11 +76,18 @@
 
     
     <script>
-        $(document).ready(function(){
-            $("#menu_icon").click(function(){
-                $("#navigation").toggle();
-            });
-        });
+        menu_icon = document.getElementById("menu_icon")
+        cancel_icon = document.getElementById("cancel_icon")
+        navigation = document.getElementById("navigation")
+
+        
+        menu_icon.addEventListener("click",function(){
+            navigation.classList.add("active")
+        })
+
+        cancel_icon.addEventListener("click",function(){
+            navigation.classList.remove("active")
+        })
     </script>
 </body>
 </html>
