@@ -57,6 +57,8 @@
             <div class="project-card">
                 {% if project.image %}
                 <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                {% else %}
+                <p>No image available</p>
                 {% endif %}
                 <h1>{{ project.title }}</h1>
                 <div class="links">
