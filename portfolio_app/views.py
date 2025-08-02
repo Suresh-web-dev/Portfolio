@@ -10,8 +10,9 @@ def about(request):
     return render(request,"about.html")
 
 def projects(request):
-    project = Project.objects.all()
-    return render(request,"projects.html",{"projects":project})
+    projects = Project.objects.all()
+    obj = {"projects":projects}
+    return render(request,"projects.html",obj)
 
 def skills(request):
     return render(request,"skills.html")
