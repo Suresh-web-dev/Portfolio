@@ -18,7 +18,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 SECRET_KEY = 'django-insecure-wy2!-k5v9!f4gk*y63=y_pt3$p6^ti92bv2jy61**&b-olz7h*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ["*"]
 
