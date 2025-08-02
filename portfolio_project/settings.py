@@ -17,6 +17,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-wy2!-k5v9!f4gk*y63=y_pt3$p6^ti92bv2jy61**&b-olz7h*'
 
+import os
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
