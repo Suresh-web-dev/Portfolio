@@ -106,6 +106,7 @@ header .head h1{
 
 header .navi ul{
     margin-top: 2rem;
+    width: 100%;
 }
 
 header .navi ul li{
