@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'style_____.css' %}">
+</head>
+<body>
+
+
+    <!-------------- Home Section ------------->
+
+    <main>
+        <section id="home">
+            <header>
+                <div class="head">
+                    <h1>Portfolio..</h1>
+                    <i class="fa-solid fa-bars" id="menu_icon"></i>
+                </div>
+            
+                <div class="navigation" id="navigation">
+                    <h1>Portfolio..</h1>
+                    <i class="fa-solid fa-xmark" id="cancel_icon"></i>
+                    <ul>
+                        <a href="#home"><li class="navi">Home</li></a>
+                        <a href="#skills"><li class="navi">Skills</li></a>
+                        <a href="#projects"><li class="navi">Projects</li></a>
+                        <a href="#educations"><li class="navi">Education</li></a>
+                        <a href="#contact"><li class="navi">Contact</li></a>
+                    </ul>
+                </div>
+            </header>
+        
+        
+            <div class="main">
+                <h1 class="my_roll">Full StAck Developer</h1>
+                <div class="content">
+                    <h2 class="hello">Hello, it's Me</h2>
+                    <h1 class="name">SURESH D</h1>
+                    <h2 class="role">And I'm a <span>Full Stack Developer</span></h2>
+                    <p class="about">And eager to apply my knowledge and skills in a dynamic and growth oriented environment seeking a challenging role to kickstart my career.</p>
+                    <div class="resume_buttons">
+                        <a href="{% static 'resume/SURESH.pdf' %}" target="_blank"><button>View Resume</button></a>
+                        <a href="{% static 'resume/SURESH.pdf' %}" download><button>Download Resume</button></a>
+                    </div>
+                    <div class="icons">
+                        <a href="https://github.com/Suresh-web-dev"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/suresh05/"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://wa.me/917339245270"><i class="fa-brands fa-square-whatsapp"></i></a>
+                        <a href="mailto:dssuresh68@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div> 
+        
+                <div class="images">
+                    <div class="image">
+                        <img src="{% static 'images/green man.jpg' %}" alt="green man">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-------------- Skills Section ------------->
+
+        <section id="skills">
+            <div class="skill_section">
+                <div class="progress_container">
+                    <h1>Skills</h1>
+                    <div class="progress_group"> 
+                    </div>
+                    <div class="slide_btns">
+                        <i class="fa-solid fa-chevron-left" id="arrow_previous" ></i>
+                        <i class="fa-solid fa-chevron-right" id="arrow_next"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    <!-------------- Project Section ------------->
+
+
+    <section id="projects" class="project_section">
+            <div class="project_container">
+                <h2>My <span>Projects</span></h2>
+                <div class="project_list">
+                    {% for project in projects %}
+                    <div class="project_card">
+                        {% if project.image %}
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                        {% else %}
+                        <p>No image available</p>
+                        {% endif %}
+                        <h1>{{ project.title }}</h1>
+                        <div class="links">
+                            {% if project.github_link %}
+                            <a href="{{ project.github_link }}" target="_blank"><button>View Code</button></a>
+                            {% endif %}
+                            {% if project.demo_link %}
+                            <a href="{{ project.demo_link }}" target="_blank"><button>Live Demo</button></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+    <!-------------- Educations Section ------------->
+
+    <section class="educations" id="educations">
+        <div class="education_container">
+            <h1>Educations</h1>
+
+            <div class="edus">
+                <div class="line">
+                    <div class="dot dot1"></div>
+                    <div class="dot dot2"></div>
+                    <div class="dot dot3"></div>
+                </div>
+                
+                <div class="education_content">
+                    <div class="edducation one">
+                        <h3>Python Full Stack Development</h3>
+                        <p>IPCS Global Institution Coimbatore.</p>
+                    </div>
+    
+                    <div class="edducation two">
+                        <h3>Graduation</h3>
+                        <p>B.COM (Computer Application) Bharathiar University arts and science college Thondamuthur.</p>
+                    </div>
+    
+                    <div class="edducation three">
+                        <h3>SSLC and HSC</h3>
+                        <p>I done my schooling in Government Higher Secondary School Sennanur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="contact" id="contact">
+        <div class="spider">
+            <div class="spider_man">
+                
+            </div>
+        </div>
+        <div class="contact_container">
+            <h2><span>Contact</span> Me</h2>
+            <form action="/index/" method="POST">
+                {% csrf_token %}
+                <div class="input_container">
+                    <input type="text" placeholder="First Name" name="First_Name" id="First_Name">
+                    <input type="text" placeholder="Last Name" name="Last_Name" id="Last_Name">
+                    <input type="email" placeholder="Email" name="email" id="email">
+                    <input type="number" placeholder="Phon Number" name="phon_number" id="phon_number">
+                </div>
+                <textarea name="message" placeholder="Your Message" id="message"></textarea>
+                <input type="submit" class="button"> 
+
+                <div class="icons">
+                    <a href="https://github.com/Suresh-web-dev"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/suresh05/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://wa.me/917339245270"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    <a href="mailto:dssuresh68@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    
+    </main>
+
+
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
