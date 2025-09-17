@@ -15,8 +15,9 @@ import os
 
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["*", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["https://portfolio-suresh.onrender.com", "localhost", "127.0.0.1"]
 
+CSRF_TRUSTED_ORIGINS = ["https://portfolio-suresh.onrender.com"]
 
 if not DEBUG:  # production
     SESSION_COOKIE_SECURE = True

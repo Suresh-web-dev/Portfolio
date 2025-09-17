@@ -1,11 +1,12 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='projects/')
+    image = CloudinaryField('projects/')
     github_link = models.URLField(blank=True)
     demo_link = models.URLField(blank=True)
 
