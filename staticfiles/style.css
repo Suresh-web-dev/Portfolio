@@ -440,11 +440,14 @@ header .head h1{
     }
 
     .image {
-        width: 23rem; 
+        width: 23rem;
         max-width: 400px;
     }
 
     .image img{
+        height: 320px;
+        max-width: 100%; 
+        width: 100%;
         z-index: 2;
     }
 
